@@ -72,3 +72,117 @@ private final ButtonGroup buttonGroup = new ButtonGroup();
 		lblNmero_1.setBounds(22, 132, 96, 22);
 		contentPane.add(lblNmero_1);
 
+
+		tfNum1 = new JTextField();
+		tfNum1.setBounds(107, 81, 103, 24);
+		contentPane.add(tfNum1);
+		tfNum1.setColumns(10);
+		
+		tfNum2 = new JTextField();
+		tfNum2.setBounds(107, 134, 103, 24);
+		contentPane.add(tfNum2);
+		tfNum2.setColumns(10);
+		
+		JButton button = new JButton("+");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				num1 = Double.parseDouble(tfNum1.getText());
+				num2 = Double.parseDouble(tfNum2.getText());
+				
+				ca.setNum1(num1);
+				ca.setNum2(num2);
+				
+			tfresultado.setText(""+ca.soma());
+			}
+		});
+		button.setBounds(22, 198, 45, 22);
+		contentPane.add(button);
+		
+		JButton button_1 = new JButton("-");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				num1 = Double.parseDouble(tfNum1.getText());
+				num2 = Double.parseDouble(tfNum2.getText());
+				
+				ca.setNum1(num1);
+				ca.setNum2(num2);
+				
+			tfresultado.setText(""+ca.subtracao());
+			}
+		});
+		button_1.setBounds(77, 198, 45, 22);
+		contentPane.add(button_1);
+		
+		JButton btnX = new JButton("X");
+		btnX.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				num1 = Double.parseDouble(tfNum1.getText());
+				num2 = Double.parseDouble(tfNum2.getText());
+				
+				ca.setNum1(num1);
+				ca.setNum2(num2);
+				
+			    tfresultado.setText(""+ca.multiplicacao());
+			}
+		});
+		btnX.setBounds(132, 198, 45, 22);
+		contentPane.add(btnX);
+		
+		
+		JButton button_3 = new JButton("/");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				num1 = Double.parseDouble(tfNum1.getText());
+				num2 = Double.parseDouble(tfNum2.getText());
+				
+				ca.setNum1(num1);
+				ca.setNum2(num2);
+				
+			    tfresultado.setText(""+ca.divisao());
+			}
+		});
+		button_3.setBounds(187, 198, 45, 22);
+		contentPane.add(button_3);
+		
+		
+		JLabel lblResultado = new JLabel("Resultado:");
+		lblResultado.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 16));
+		lblResultado.setBounds(22, 441, 96, 22);
+		contentPane.add(lblResultado);
+		
+		tfresultado = new JTextField();
+		tfresultado.setEditable(false);
+		tfresultado.setColumns(10);
+		tfresultado.setBounds(107, 441, 103, 24);
+		contentPane.add(tfresultado);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.addPopupMenuListener(new PopupMenuListener() {
+			public void popupMenuCanceled(PopupMenuEvent arg0) {
+			}
+			public void popupMenuWillBecomeInvisible(PopupMenuEvent arg0) {
+				num1 = Double.parseDouble(tfNum1.getText());
+				num2 = Double.parseDouble(tfNum2.getText());
+				
+				ca.setNum1(num1);
+				ca.setNum2(num2);
+				
+				if(comboBox.getSelectedIndex()==0) {
+					tfresultado.setText(""+ca.soma());
+					
+				}else if(comboBox.getSelectedIndex()==1) {
+					tfresultado.setText(""+ca.subtracao());
+					
+				}else if(comboBox.getSelectedIndex()==2) {
+					tfresultado.setText(""+ca.multiplicacao());
+					
+				}else if(comboBox.getSelectedIndex()==3) {
+					tfresultado.setText(""+ca.divisao());
+				}
+			}
+			public void popupMenuWillBecomeVisible(PopupMenuEvent arg0) {
+			}
+		});
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Soma", "Subtra\u00E7\u00E3o", "Multiplica\u00E7\u00E3o", "Divis\u00E3o"}));
+
+
