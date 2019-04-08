@@ -18,4 +18,23 @@ public class Calculadora {
 		this.num2 = num2;
 	}
 	
+	public double soma() {
+		return (this.getNum1()+this.getNum2());
+	}
+	
+	public double subtracao() {
+		return (this.getNum1()-this.getNum2());
+	}
+	
+	public double multiplicacao() {
+		return (this.getNum1()*this.getNum2());
+	}
+	
+	public double divisao() {
+		return (this.getNum1()/this.getNum2());
+	}
+}
+
+
+	
 }
