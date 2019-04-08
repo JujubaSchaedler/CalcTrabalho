@@ -184,5 +184,59 @@ private final ButtonGroup buttonGroup = new ButtonGroup();
 			}
 		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Soma", "Subtra\u00E7\u00E3o", "Multiplica\u00E7\u00E3o", "Divis\u00E3o"}));
+	comboBox.setBounds(22, 241, 103, 20);
+		contentPane.add(comboBox);
+		
+		JRadioButton rbSoma = new JRadioButton("Soma");
+		rbSoma.setSelected(true);
+		buttonGroup.add(rbSoma);
+		rbSoma.setBounds(22, 272, 109, 23);
+		contentPane.add(rbSoma);
+		
+		JRadioButton rbSub = new JRadioButton("Subtra\u00E7\u00E3o");
+		buttonGroup.add(rbSub);
+		rbSub.setBounds(22, 298, 109, 23);
+		contentPane.add(rbSub);
+		
+		JRadioButton rbmult = new JRadioButton("Multiplica\u00E7\u00E3o");
+		buttonGroup.add(rbmult);
+		rbmult.setBounds(22, 325, 109, 23);
+		contentPane.add(rbmult);
+		
+		JRadioButton rbDiv = new JRadioButton("Divis\u00E3o");
+		buttonGroup.add(rbDiv);
+		rbDiv.setBounds(22, 351, 109, 23);
+		contentPane.add(rbDiv);
+		
+		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				num1 = Double.parseDouble(tfNum1.getText());
+				num2 = Double.parseDouble(tfNum2.getText());
+				
+				ca.setNum1(num1);
+				ca.setNum2(num2);
+				
+				if(rbSoma.isSelected()) {
+					tfresultado.setText(""+ca.soma());
+					
+				}else if(rbSub.isSelected()) {
+					tfresultado.setText(""+ca.subtracao());
+					
+				}else if(rbmult.isSelected()) {
+					tfresultado.setText(""+ca.multiplicacao());
+					
+				}else if(rbDiv.isSelected()) {
+					tfresultado.setText(""+ca.divisao());
+				}
+			
+			}
+		});
+		btnNewButton.setBounds(108, 381, 89, 23);
+		contentPane.add(btnNewButton);
+	}
+}
+
+
 
 
